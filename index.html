@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Фильм о жизни из семейных фото за 24 часа к тою: реставрация, оживление, казахские титры, музыка. От 40 000 ₸.">
+<meta property="og:title" content="Естелік — фильм из семейных фото за 24 часа">
+<meta property="og:description" content="Отбасылық суреттерден өмір туралы фильм · Реставрация, оживление, титры, музыка. От 40 000 ₸.">
+<meta property="og:image" content="https://estelikfilm.com/og.jpg">
+<meta property="og:url" content="https://estelikfilm.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Естелік</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,500;0,600;1,500&family=PT+Sans:wght@400;700&display=swap">
+<style>
+/* Layout: семейный альбом, который оживает — стопка снимков в герое, главы фильма как лента, тарифы как карточки-снимки */
+:root {
+  --sky: #e6f0f6;          /* бледно-голубой, как небо на флаге */
+  --paper: #fbfaf6;        /* фотобумага */
+  --ink: #142433;          /* тёмно-синие чернила */
+  --muted: #4d6072;
+  --gold: #c8901a;         /* золото орнамента */
+  --gold-soft: #f3e2b8;
+  --line: #c9d7e2;
+  --tg: #1f7fbf;
+  --shadow: 0 10px 30px rgba(20, 36, 51, .14);
+  --display: "Lora", Georgia, "Times New Roman", serif;
+  --body: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sky: #0e1a24; --paper: #17252f; --ink: #eaf1f6; --muted: #a3b4c2; --gold: #e3b04b;
+    --gold-soft: #3a2f17; --line: #2a3b48; --tg: #3a9be0; --shadow: 0 10px 30px rgba(0,0,0,.45); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --sky: #0e1a24; --paper: #17252f; --ink: #eaf1f6; --muted: #a3b4c2; --gold: #e3b04b;
+  --gold-soft: #3a2f17; --line: #2a3b48; --tg: #3a9be0; --shadow: 0 10px 30px rgba(0,0,0,.45); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--sky); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 64px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(34px, 6vw, 58px); }
+h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 28px; }
+h3 { font-size: 21px; }
+p { margin: 0; }
+.kz { font-family: var(--hand); color: var(--gold); font-size: 1.5em; line-height: 1; }
+.lead { font-size: 19px; color: var(--muted); max-width: 34em; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 17px; }
+.btn-tg { background: var(--tg); color: #fff; }
+.btn-tg:hover, .btn-tg:focus-visible { filter: brightness(1.08); }
+.btn-ghost { color: var(--ink); border: 1.5px solid var(--line); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* hero */
+.hero { padding-block: 40px 56px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.hero > * { min-width: 0; }
+.brand { font-family: var(--display); font-style: italic; font-size: 22px; padding-block: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand small { font-family: var(--body); font-style: normal; font-size: 14px; color: var(--muted); }
+.hero-text { display: grid; gap: 22px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--muted); font-size: 15px; }
+.facts b { color: var(--ink); }
+
+.stack { position: relative; height: 420px; }
+.photo { position: absolute; background: var(--paper); padding: 12px 12px 44px; box-shadow: var(--shadow); width: 62%; }
+.photo .img { aspect-ratio: 4 / 3; position: relative; overflow: hidden; }
+.photo .cap { position: absolute; left: 14px; bottom: 8px; font-family: var(--hand); font-size: 26px; color: var(--ink); }
+.p1 { left: 0; top: 18px; transform: rotate(-7deg); }
+.p2 { right: 0; top: 0; transform: rotate(5deg); }
+.p3 { left: 18%; top: 150px; transform: rotate(-1deg); width: 68%; z-index: 2; }
+/* «снимки» нарисованы: степь, горизонт, солнце — пока нет демо-кадров */
+.scene { position: absolute; inset: 0; background:
+  radial-gradient(circle at 72% 34%, #ffd27a 0 9%, transparent 10%),
+  linear-gradient(#8fc3e4 0 52%, #d9b56a 52% 64%, #a57f3f 64%); }
+.scene::after { content: ""; position: absolute; left: 18%; bottom: 14%; width: 22%; height: 46%;
+  background: radial-gradient(circle at 50% 18%, #3b2a1e 0 16%, transparent 17%), linear-gradient(transparent 30%, #6a3a2a 30%);
+  border-radius: 40% 40% 6px 6px; box-shadow: 70px 6px 0 -4px #2d4766; }
+.old .scene { filter: sepia(.9) grayscale(.35) contrast(.9); }
+.p3 .scene { animation: alive 5s ease-in-out 1s infinite alternate; }
+@keyframes alive { from { filter: sepia(.9) grayscale(.35) contrast(.9); transform: scale(1); } to { filter: none; transform: scale(1.07); } }
+@media (prefers-reduced-motion: reduce) { .p3 .scene { animation: none; filter: none; } }
+.badge { position: absolute; right: 6%; bottom: 6px; z-index: 3; background: var(--gold); color: #1b1408; font-weight: 700; padding: 8px 14px; border-radius: 999px; font-size: 14px; box-shadow: var(--shadow); }
+
+/* steps */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+.step { counter-increment: s; display: grid; gap: 8px; align-content: start; border-top: 2px solid var(--gold); padding-top: 14px; }
+.step::before { content: counter(s); font-family: var(--display); font-size: 34px; color: var(--gold); line-height: 1; }
+.step p { color: var(--muted); font-size: 16px; }
+
+/* film chapters */
+.film { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 26px 0; overflow-x: auto; }
+.reel { display: flex; gap: 0; min-width: 760px; padding-inline: 26px; }
+.frame { flex: 1; border-left: 1px dashed rgba(255,255,255,.25); padding: 6px 14px; display: grid; gap: 4px; }
+.frame:first-child { border-left: 0; }
+.frame .t { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--gold-soft); }
+.frame .d { font-size: 14px; opacity: .8; }
+:root[data-theme="dark"] .frame .t { color: var(--gold); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .frame .t { color: var(--gold); } }
+.film-note { margin-top: 14px; color: var(--muted); font-size: 15px; }
+.includes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px; margin-top: 32px; }
+.includes div { display: grid; gap: 2px; }
+.includes b { font-size: 17px; }
+.includes span { color: var(--muted); font-size: 15px; }
+
+/* prices */
+.prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.price { background: var(--paper); padding: 22px 20px; display: grid; gap: 10px; align-content: start; box-shadow: 0 2px 0 var(--line); }
+.price.main { outline: 2px solid var(--gold); }
+.price .n { font-family: var(--hand); font-size: 30px; color: var(--gold); line-height: 1; }
+.price .sum { font-family: var(--display); font-size: 32px; font-variant-numeric: tabular-nums; }
+.price ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; display: grid; gap: 4px; }
+.extra { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px 26px; color: var(--muted); font-size: 16px; }
+.extra b { color: var(--ink); }
+
+/* partners */
+.partners { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; background: var(--gold-soft); padding: 32px; border-radius: 6px; }
+.partners > * { min-width: 0; }
+.partners p { color: var(--ink); }
+
+/* faq */
+details { border-bottom: 1px solid var(--line); padding-block: 16px; }
+summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::after { content: "+"; color: var(--gold); font-size: 24px; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { margin-top: 10px; color: var(--muted); max-width: 46em; }
+
+.final { text-align: center; display: grid; gap: 18px; justify-items: center; }
+.handle { font-size: 20px; user-select: all; }
+.partners h2 { margin-bottom: 12px; }
+.partner-cta { display: grid; gap: 16px; justify-items: start; }
+.final h2 { margin: 0; }
+.lang { display: inline-flex; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; font-family: var(--body); font-style: normal; }
+.lang button { background: none; border: 0; padding: 6px 14px; font: inherit; font-size: 14px; font-weight: 700; color: var(--muted); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--sky); }
+.logo { display: inline-flex; align-items: center; gap: 12px; }
+.logo img { border-radius: 50%; box-shadow: 0 2px 8px rgba(20, 36, 51, .18); }
+.brand-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+footer { padding-block: 28px 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .stack { height: 330px; max-width: 460px; width: 100%; margin: 0 auto; }
+  .p3 { top: 110px; }
+  .steps, .prices { grid-template-columns: 1fr 1fr; }
+  .includes { grid-template-columns: 1fr 1fr; }
+  .partners { grid-template-columns: 1fr; padding: 24px; }
+}
+@media (max-width: 520px) {
+  section { padding-block: 44px; }
+  .steps, .prices, .includes { grid-template-columns: 1fr; }
+  .stack { height: 280px; }
+  .p3 { top: 90px; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="logo"><img src="data:image/jpeg;base64,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" alt="" width="44" height="44">Естелік</span>
+    <div class="brand-right">
+      <small data-lang="ru">Алматы · Астана · по всему Казахстану</small>
+      <small data-lang="kk" hidden>Алматы · Астана · бүкіл Қазақстан бойынша</small>
+      <div class="lang" role="group" aria-label="Тіл / Язык"><button type="button" id="lang-kk" data-set="kk" aria-pressed="false">Қаз</button><button type="button" id="lang-ru" data-set="ru" aria-pressed="true">Рус</button></div>
+    </div>
+  </div>
+</div>
+<div data-lang="ru" lang="ru">
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <span class="kz">Өмір жолы — ұзақ жол</span>
+      <h1>Фильм о жизни из семейных фото — за 24 часа к тою</h1>
+      <p class="lead">Присылаете 20–40 фотографий. Мы реставрируем старые снимки, оживляем их, складываем в главы жизни, пишем песню с именем юбиляра и монтируем фильм для экрана на тое.</p>
+      <div class="ctas">
+        <a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn-ghost" href="#prices">Цены</a>
+      </div>
+      <div class="facts"><span><b>24 часа</b> от фото до фильма</span><span><b>от 40 000 ₸</b> за фильм</span><span>титры на <b>казахском</b> и русском</span></div>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <div class="photo old p1"><div class="img"><div class="scene"></div></div><span class="cap">1976</span></div>
+      <div class="photo old p2"><div class="img"><div class="scene"></div></div><span class="cap">Мектеп жылдары</span></div>
+      <div class="photo p3"><div class="img"><div class="scene"></div></div><span class="cap">Балалық шақ</span></div>
+      <span class="badge">фото оживает</span>
+    </div>
+  </header>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Как это работает</h2>
+    <div class="steps">
+      <div class="step"><h3>Фото и анкета</h3><p>Присылаете фото в Telegram и отвечаете на 9 вопросов: повод, имя в титрах, характер героя, кого показать.</p></div>
+      <div class="step"><h3>Реставрация</h3><p>Убираем трещины и пятна, раскрашиваем чёрно-белые снимки, по вашей просьбе убираем лишнее из кадра.</p></div>
+      <div class="step"><h3>Оживление</h3><p>Люди на фото дышат, улыбаются, поворачиваются друг к другу. Лица остаются своими.</p></div>
+      <div class="step"><h3>Монтаж</h3><p>Главы жизни, титры, переходы, музыка. Присылаем черновик, вносим правки и отдаём фильм.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Каким получается фильм</h2>
+    <div class="film">
+      <div class="reel">
+        <div class="frame"><span class="t">Эпиграф</span><span class="d">пожелание от семьи</span></div>
+        <div class="frame"><span class="t">Балалық шақ</span><span class="d">детство</span></div>
+        <div class="frame"><span class="t">Мектеп жылдары</span><span class="d">школа</span></div>
+        <div class="frame"><span class="t">Студенттік кез</span><span class="d">учёба</span></div>
+        <div class="frame"><span class="t">Отбасы</span><span class="d">семья и дети</span></div>
+        <div class="frame"><span class="t">Бүгін</span><span class="d">сегодня</span></div>
+        <div class="frame"><span class="t">Тілек</span><span class="d">поздравление</span></div>
+      </div>
+    </div>
+    <p class="film-note">Пример глав для юбилея. Длина фильма 2–3,5 минуты (около 4 секунд на фото), формат 16:9 для экрана на тое или 9:16 для Instagram.</p>
+    <div class="includes">
+      <div><b>Реставрация и цвет</b><span>старые снимки чистим и раскрашиваем</span></div>
+      <div><b>Похожие лица</b><span>сдержанные улыбки, без кривляний</span></div>
+      <div><b>Казахские титры</b><span>главы и поздравление, проверяем текст</span></div>
+      <div><b>Своя песня</b><span>с именем юбиляра, на казахском или русском</span></div>
+      <div><b>Деликатность</b><span>уберём из кадра бокалы, надписи, лишних людей</span></div>
+      <div><b>Один круг правок</b><span>смотрите черновик и говорите, что поменять</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap">
+    <h2>Цены</h2>
+    <div class="prices">
+      <div class="price"><span class="n">10 фото</span><h3>Оживление</h3><span class="sum">15 000 ₸</span><ul><li>10 оживлённых клипов</li><li>реставрация старых фото</li><li>без монтажа</li></ul></div>
+      <div class="price main"><span class="n">20 фото</span><h3>Фильм</h3><span class="sum">40 000 ₸</span><ul><li>реставрация и оживление</li><li>главы, титры, музыка</li><li>фильм ≈ 2 минуты</li></ul></div>
+      <div class="price"><span class="n">30 фото</span><h3>Фильм</h3><span class="sum">50 000 ₸</span><ul><li>всё из «Фильм 20»</li><li>фильм ≈ 2,5–3 минуты</li><li>один круг правок</li></ul></div>
+      <div class="price"><span class="n">40 фото</span><h3>Фильм с песней</h3><span class="sum">60 000 ₸</span><ul><li>всё из «Фильм 30»</li><li>своя песня с именем</li><li>фильм ≈ 3–3,5 минуты</li></ul></div>
+    </div>
+    <div class="extra"><span><b>+10 000 ₸</b> своя песня к любому фильму</span><span><b>50 %</b> предоплата через Kaspi</span><span><b>24 часа</b> после фото и анкеты</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="partners">
+      <div><h2>Тамадам, ведущим и агентствам</h2><p>Фильм-сюрприз на тое — момент, который запоминают гости. Платим 15 % с каждого заказа по вашей рекомендации или даём партнёрскую цену для перепродажи.</p></div>
+      <div class="partner-cta"><p>Пришлите 1 фото — бесплатно оживим его, чтобы вы показали клиентам.</p><a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Стать партнёром</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Вопросы</h2>
+    <details><summary>Правда за 24 часа?</summary><p>Да, отсчёт идёт с момента, когда у нас есть все фото и ответы на анкету. Если той уже завтра — напишите, скажем, успеваем ли.</p></details>
+    <details><summary>Фото старые и плохого качества</summary><p>Пересните снимок на телефон при дневном свете без вспышки. Трещины, пятна и выцветание убираем сами. Если лицо совсем не разобрать, скажем об этом до работы.</p></details>
+    <details><summary>Лица будут похожи?</summary><p>Это главное правило. Близких показываем почти неподвижно: дыхание, взгляд, мягкая улыбка. Если клип исказил лицо, переделываем или оставляем фото с плавным движением камеры.</p></details>
+    <details><summary>Что с моими фото после заказа?</summary><p>Используем только для вашего фильма. В рекламе не показываем без вашего согласия. Удаляем через 30 дней после сдачи.</p></details>
+    <details><summary>Какая будет музыка?</summary><p>Ваша песня, подобранная мелодия или своя песня с именем героя — на казахском или русском. Музыку создаём с правом показа на тое и в соцсетях.</p></details>
+    <details><summary>Как оплатить?</summary><p>50 % предоплата через Kaspi при заказе, остальное — после того, как одобрите черновик.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap final">
+    <span class="kz">Мерейлі той құтты болсын!</span>
+    <h2>Расскажите, для кого фильм</h2>
+    <a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Написать в Telegram</a>
+    <span class="handle">@estelik_film_bot</span>
+  </div>
+</section>
+
+<footer><div class="wrap">Естелік — фильмы из семейных фото. Изображения людей в демо созданы ИИ.</div></footer>
+</div>
+
+<div data-lang="kk" lang="kk" hidden>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <span class="kz">Өмір жолы — ұзақ жол</span>
+      <h1>Отбасылық суреттерден өмір туралы фильм — тойға 24 сағатта</h1>
+      <p class="lead">20–40 сурет жібересіз. Біз ескі суреттерді қалпына келтіреміз, оларды жандандырамыз, өмір кезеңдеріне бөлеміз, мерейтой иесінің есімімен ән жазамыз және той экранына арналған фильм құрастырамыз.</p>
+      <div class="ctas">
+        <a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Telegram-ға жазу</a>
+        <a class="btn btn-ghost" href="#prices-kk">Бағалар</a>
+      </div>
+      <div class="facts"><span>суреттен фильмге дейін <b>24 сағат</b></span><span>фильм <b>40 000 ₸-ден</b></span><span>титрлер <b>қазақша</b> және орысша</span></div>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <div class="photo old p1"><div class="img"><div class="scene"></div></div><span class="cap">1976</span></div>
+      <div class="photo old p2"><div class="img"><div class="scene"></div></div><span class="cap">Мектеп жылдары</span></div>
+      <div class="photo p3"><div class="img"><div class="scene"></div></div><span class="cap">Балалық шақ</span></div>
+      <span class="badge">сурет жанданады</span>
+    </div>
+  </header>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Бұл қалай жасалады</h2>
+    <div class="steps">
+      <div class="step"><h3>Суреттер мен сауалнама</h3><p>Суреттерді Telegram арқылы жібересіз де, 9 сұраққа жауап бересіз: той себебі, титрдегі есім, кейіпкердің мінезі, кімді көрсету керек.</p></div>
+      <div class="step"><h3>Қалпына келтіру</h3><p>Жарықтар мен дақтарды кетіреміз, ақ-қара суреттерді түрлі-түсті етеміз, қаласаңыз кадрдағы артық нәрсені алып тастаймыз.</p></div>
+      <div class="step"><h3>Жандандыру</h3><p>Суреттегі адамдар тыныс алады, жымияды, бір-біріне бұрылады. Жүздері өзгермейді.</p></div>
+      <div class="step"><h3>Монтаж</h3><p>Өмір кезеңдері, титрлер, өтпелер, музыка. Алдымен нобайын жібереміз, түзетулер енгізіп, дайын фильмді тапсырамыз.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Фильм қандай болады</h2>
+    <div class="film">
+      <div class="reel">
+        <div class="frame"><span class="t">Эпиграф</span><span class="d">отбасының тілегі</span></div>
+        <div class="frame"><span class="t">Балалық шақ</span><span class="d">алғашқы суреттер</span></div>
+        <div class="frame"><span class="t">Мектеп жылдары</span><span class="d">мектеп</span></div>
+        <div class="frame"><span class="t">Студенттік кез</span><span class="d">оқу жылдары</span></div>
+        <div class="frame"><span class="t">Отбасы</span><span class="d">үйлену, балалар</span></div>
+        <div class="frame"><span class="t">Бүгін</span><span class="d">бүгінгі күн</span></div>
+        <div class="frame"><span class="t">Тілек</span><span class="d">құттықтау</span></div>
+      </div>
+    </div>
+    <p class="film-note">Мерейтойға арналған тараулар үлгісі. Фильм ұзақтығы 2–3,5 минут (әр суретке шамамен 4 секунд), той экранына 16:9 немесе Instagram үшін 9:16 форматта.</p>
+    <div class="includes">
+      <div><b>Қалпына келтіру және түс</b><span>ескі суреттерді тазартып, түрлі-түсті етеміз</span></div>
+      <div><b>Жүздер ұқсас</b><span>ұстамды жымиыс, артық қимылсыз</span></div>
+      <div><b>Қазақша титрлер</b><span>тараулар мен құттықтау, мәтінін тексереміз</span></div>
+      <div><b>Өз әніңіз</b><span>мерейтой иесінің есімімен, қазақша немесе орысша</span></div>
+      <div><b>Сыйластық</b><span>кадрдан бокалдарды, жазуларды, бөгде адамдарды алып тастаймыз</span></div>
+      <div><b>Бір рет түзету</b><span>нобайын көріп, нені өзгерту керегін айтасыз</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices-kk">
+  <div class="wrap">
+    <h2>Бағалар</h2>
+    <div class="prices">
+      <div class="price"><span class="n">10 сурет</span><h3>Жандандыру</h3><span class="sum">15 000 ₸</span><ul><li>10 жанданған клип</li><li>ескі суреттерді қалпына келтіру</li><li>монтажсыз</li></ul></div>
+      <div class="price main"><span class="n">20 сурет</span><h3>Фильм</h3><span class="sum">40 000 ₸</span><ul><li>қалпына келтіру және жандандыру</li><li>тараулар, титрлер, музыка</li><li>шамамен 2 минуттық фильм</li></ul></div>
+      <div class="price"><span class="n">30 сурет</span><h3>Фильм</h3><span class="sum">50 000 ₸</span><ul><li>«Фильм 20»-дағының бәрі</li><li>шамамен 2,5–3 минуттық фильм</li><li>бір рет түзету</li></ul></div>
+      <div class="price"><span class="n">40 сурет</span><h3>Әні бар фильм</h3><span class="sum">60 000 ₸</span><ul><li>«Фильм 30»-дағының бәрі</li><li>есімі айтылатын өз әні</li><li>шамамен 3–3,5 минуттық фильм</li></ul></div>
+    </div>
+    <div class="extra"><span>кез келген фильмге өз әні <b>+10 000 ₸</b></span><span>Kaspi арқылы <b>50 %</b> алдын ала төлем</span><span>суреттер мен сауалнамадан кейін <b>24 сағат</b></span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="partners">
+      <div><h2>Асабаларға, жүргізушілерге және агенттіктерге</h2><p>Тойдағы фильм-тосынсый — қонақтардың есінде қалатын сәт. Сіздің ұсынысыңызбен келген әр тапсырыстан 15 % төлейміз немесе қайта сату үшін серіктес бағасын береміз.</p></div>
+      <div class="partner-cta"><p>1 сурет жіберіңіз — клиенттеріңізге көрсету үшін тегін жандандырамыз.</p><a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Серіктес болу</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Сұрақтар</h2>
+    <details><summary>Шынымен 24 сағатта ма?</summary><p>Иә, барлық суреттер мен сауалнама жауаптары бізге жеткен сәттен бастап санаймыз. Той ертең болса — жазыңыз, үлгеретінімізді айтамыз.</p></details>
+    <details><summary>Суреттер ескі, сапасы нашар</summary><p>Суретті күндізгі жарықта, жарқылсыз телефонға қайта түсіріңіз. Жарықтарды, дақтарды, оңып кетуді өзіміз түзетеміз. Егер жүзі мүлде көрінбесе, жұмысты бастамай тұрып айтамыз.</p></details>
+    <details><summary>Жүздері ұқсас бола ма?</summary><p>Бұл басты ереже. Жақындарыңызды дерлік қозғалыссыз көрсетеміз: тыныс, көзқарас, жұмсақ жымиыс. Клип жүзді бұрмаласа, қайта жасаймыз немесе камерасы баяу қозғалатын суретті қалдырамыз.</p></details>
+    <details><summary>Тапсырыстан кейін суреттерім не болады?</summary><p>Тек сіздің фильміңізге қолданамыз. Келісіміңізсіз жарнамада көрсетпейміз. Фильмді тапсырғаннан кейін 30 күнде өшіреміз.</p></details>
+    <details><summary>Музыка қандай болады?</summary><p>Өз әніңіз, таңдалған әуен немесе кейіпкердің есімі айтылатын жаңа ән — қазақша немесе орысша. Музыканы тойда және әлеуметтік желілерде көрсету құқығымен жасаймыз.</p></details>
+    <details><summary>Қалай төлеймін?</summary><p>Тапсырыс бергенде Kaspi арқылы 50 % алдын ала төлем, қалғанын нобайын мақұлдағаннан кейін.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap final">
+    <span class="kz">Мерейлі той құтты болсын!</span>
+    <h2>Фильм кімге арналғанын айтып беріңіз</h2>
+    <a class="btn btn-tg" href="https://t.me/estelik_film_bot" target="_blank" rel="noopener">Telegram-ға жазу</a>
+    <span class="handle">@estelik_film_bot</span>
+  </div>
+</section>
+
+<footer><div class="wrap">Естелік — отбасылық суреттерден жасалған фильмдер. Демодағы адамдардың бейнесін ЖИ жасаған.</div></footer>
+</div>
+
+<script>
+(function () {
+  function setLang(l) {
+    document.querySelectorAll("[data-lang]").forEach(function (el) { el.hidden = el.getAttribute("data-lang") !== l; });
+    document.querySelectorAll("[data-set]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set") === l)); });
+    document.documentElement.lang = l;
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  var l = location.hash === "#kk" ? "kk" : location.hash === "#ru" ? "ru" : null;
+  if (!l) { try { l = localStorage.getItem("lang"); } catch (e) {} }
+  if (l !== "kk" && l !== "ru") l = (navigator.language || "").slice(0, 2) === "kk" ? "kk" : "ru";
+  setLang(l);
+  document.querySelectorAll("[data-set]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set")); }); });
+})();
+</script>
+
+</body>
+</html>
